@@ -5,6 +5,9 @@ namespace REBELinBLUE\Deployer\Http\Middleware;
 use Illuminate\Http\Request;
 use Fideloper\Proxy\TrustProxies as Middleware;
 
+/**
+ * Middleware for trusted proxies.
+ */
 class TrustProxies extends Middleware
 {
     /**
