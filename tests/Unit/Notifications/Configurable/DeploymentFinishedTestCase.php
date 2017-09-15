@@ -183,6 +183,7 @@ abstract class DeploymentFinishedTestCase extends TestCase
         $deployment = m::mock(Deployment::class);
         $deployment->shouldReceive('getAttribute')->once()->with('id')->andReturn($expectedId);
         $deployment->shouldReceive('getAttribute')->once()->with('branch')->andReturn($expectedBranchName);
+        $deployment->shouldReceive('offsetExists')->atLeast()->once()->with('reason')->andReturn(true);
         $deployment->shouldReceive('getAttribute')->atLeast()->once()->with('reason')->andReturn($expectedReason);
         $deployment->shouldReceive('getAttribute')->once()->with('started_at')->andReturn($startedDate);
         $deployment->shouldReceive('getAttribute')->once()->with('finished_at')->andReturn($finishedDate);
