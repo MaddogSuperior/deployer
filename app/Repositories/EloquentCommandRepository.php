@@ -48,7 +48,9 @@ class EloquentCommandRepository extends EloquentRepository implements CommandRep
             $servers = $fields['servers'];
             unset($fields['servers']);
         }
-
+        
+        $fields['script'] = str_replace("\r\n", "\n", $fields['script']); // Bash Line Ending Fix.
+        
         $model = $this->model->create($fields);
 
         if ($servers) {
@@ -77,6 +79,8 @@ class EloquentCommandRepository extends EloquentRepository implements CommandRep
             $servers = $fields['servers'];
             unset($fields['servers']);
         }
+        
+        $fields['script'] = str_replace("\r\n", "\n", $fields['script']); // Bash Line Ending Fix.
 
         $model->update($fields);
 
